@@ -12,6 +12,7 @@
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "craco": "^0.0.3",
+    "craco-less": "^2.1.0-alpha.0",
     "normalize.css": "^8.0.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
