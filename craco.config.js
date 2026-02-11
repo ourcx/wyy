@@ -9,7 +9,15 @@ module.exports = {
     webpack: {
         alias: {
             '@': resolve('src'),
-            'components': resolve('src/components'), // 可选：添加更多别名
+            'components': resolve('src/components'),
+        },
+        configure: (webpackConfig) => {
+            // 解决 source-map 警告
+            webpackConfig.devtool = process.env.NODE_ENV === 'development' 
+                ? 'cheap-module-source-map' 
+                : 'source-map';
+            
+            return webpackConfig;
         }
     },
     plugins: [

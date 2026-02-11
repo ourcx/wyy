@@ -5,11 +5,11 @@ interface IProps{
     children?: ReactNode;
 } 
 
-const Discover:FC<IProps> = (props) => {
+const Download:FC<IProps> = (props) => {
     return (
-        <div>Discover</div>
+        <div></div>
     )
 }
-export default memo(Discover);
+export default memo(Download);
 //缓存组件
 
