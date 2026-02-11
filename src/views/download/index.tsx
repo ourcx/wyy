@@ -7,7 +7,7 @@ interface IProps{
 
 const Download:FC<IProps> = (props) => {
     return (
-        <div></div>
+        <div>download</div>
     )
 }
 export default memo(Download);
