@@ -10,15 +10,21 @@ module.exports = {
         alias: {
             '@': resolve('src'),
             'components': resolve('src/components'),
-        },
-        configure: (webpackConfig) => {
-            // 解决 source-map 警告
-            webpackConfig.devtool = process.env.NODE_ENV === 'development' 
-                ? 'cheap-module-source-map' 
-                : 'source-map';
-            
-            return webpackConfig;
         }
+    },
+    style: {
+        postcss: {
+            mode: 'extends',
+            loaderOptions: {
+                postcssOptions: {
+                    ident: 'postcss',
+                    plugins: [
+                        require('tailwindcss'),
+                        require('autoprefixer'),
+                    ],
+                },
+            },
+        },
     },
     plugins: [
         {
