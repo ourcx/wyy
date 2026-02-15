@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector,shallowEqual } from 'react-redux'
+import { counterReducer } from './modules/counter'
 const store = configureStore({
-    reducer: {},
+    reducer: {
+        counter: counterReducer
+    },
 })
 
 type GetStateFntype = typeof store.getState
