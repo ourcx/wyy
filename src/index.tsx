@@ -12,8 +12,8 @@ import { Provider } from 'react-redux';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-if (!process.env.REACT_APP_baseURL) {
-  throw new Error('REACT_APP_baseURL is not defined');
+if (!process.env.REACT_APP_BASE_URL) {
+  throw new Error('REACT_APP_BASE_URL is not defined');
 }
 root.render(
   <Provider store={store}>

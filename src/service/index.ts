@@ -1,11 +1,12 @@
+// 按业务模块划分 API（示例）
+import request from '@/service/request';
 // 导出配置
 export * from './config';
 
 // 导出请求实例
 export { default as request } from '@/service/request';
 
-// 按业务模块划分 API（示例）
-import request from '@/service/request';
+
 
 // 用户相关接口 
 export const userApi = {
