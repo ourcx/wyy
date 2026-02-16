@@ -10,14 +10,6 @@ module.exports = {
       components: resolve('src/components'),
     },
   },
-  style: {
-    postcss: {
-      plugins: [
-        require('@tailwindcss/postcss'), // 必须使用这个，因为你已安装 4.x 版本
-        require('autoprefixer'),
-      ],
-    },
-  },
   plugins: [
     {
       plugin: CracoLessPlugin,
