@@ -6,6 +6,12 @@ declare module 'styled-components' {
     color: {
       primary: string;
       secondary: string;
+      background: string;
+      surface: string;
+      textPrimary: string;
+      textSecondary: string;
+      textOnPrimary: string;
+      textOnSecondary: string;
     };
     size: Record<string, any>;
     mixin: {
