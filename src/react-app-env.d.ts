@@ -12,6 +12,7 @@ declare module 'styled-components' {
       textSecondary: string;
       textOnPrimary: string;
       textOnSecondary: string;
+      BarBg: string;
     };
     size: Record<string, any>;
     mixin: {

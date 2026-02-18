@@ -8,11 +8,18 @@ const theme = {
         textSecondary: '#f78c6b',
         textOnPrimary: '#ffffff',
         textOnSecondary: '#000000',
+        BarBg: '#e8e9eb',
     },
-    size: {},
+    size: {
+        barHeight:'50px'
+    },
     mixin: {
         wrapv1: `
             width: 1100px;
+            margin: 0 auto;
+        `,
+        wrapv2: `
+            width: 980px;
             margin: 0 auto;
         `
     }

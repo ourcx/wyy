@@ -21,22 +21,22 @@ const AppHeader: FC<IProps> = () => {
         <HeaderWrapper>
             <div className="content">
                 {/* 左侧 Logo 和导航 */}
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "center",height: "100%" }}>
                     <div className="logo">
                         Music<span>Hub</span>
                     </div>
-                    <ul className="nav">
+                    <div className="nav">
                         {navLinks.map((item) => (
-                            <li key={item.to}>
+                            <div key={item.to} className="nav-wrap">
                                 <NavLink
                                     to={item.to}
                                     className={({ isActive }) => (isActive ? "active" : "")}
                                 >
                                     {item.title}
                                 </NavLink>
-                            </li>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 </div>
 
                 {/* 右侧搜索和用户 */}
@@ -50,6 +50,7 @@ const AppHeader: FC<IProps> = () => {
                     </div>
                 </div>
             </div>
+            <div className="content-footer"></div>
         </HeaderWrapper>
     );
 };

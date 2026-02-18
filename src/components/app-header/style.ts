@@ -7,11 +7,11 @@ export const HeaderWrapper = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 
   .content {
-    height: 70px;
+    height: ${(props) => props.theme.size.barHeight};
     display: flex;
     align-items: center;
     justify-content: space-between;
-    ${(props) => props.theme.mixin.wrapv1}
+    margin: 0 4rem;
   }
 
   .logo {
@@ -35,22 +35,51 @@ export const HeaderWrapper = styled.div`
     margin: 0;
     padding: 0;
     list-style: none;
+    height: 100%;
 
-    a {
-      font-size: 16px;
-      color: ${(props) => props.theme.color.textPrimary};
-      text-decoration: none;
-      transition: color 0.2s;
-      padding: 4px 0;
-      border-bottom: 2px solid transparent;
+    .nav-wrap {
+      height: 100%;
+      width: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
 
-      &:hover {
-        color: ${(props) => props.theme.color.primary};
-      }
+      a {
+        font-size: 16px;
+        color: ${(props) => props.theme.color.textPrimary};
+        text-decoration: none;
+        transition: color 0.2s;
+        padding: 0;
+        
+        /* 让链接占满父容器，背景色可覆盖整个区域 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
 
-      &.active {
-        color: ${(props) => props.theme.color.primary};
-        border-bottom-color: ${(props) => props.theme.color.primary};
+        &:hover {
+          color: ${(props) => props.theme.color.primary};
+        }
+
+        /* 激活状态：灰色背景 + 底部三角形 */
+        &.active {
+          background-color: ${(props) => props.theme.color.BarBg};
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid ${(props) => props.theme.color.primary};
+          }
+        }
       }
     }
   }
@@ -123,6 +152,11 @@ export const HeaderWrapper = styled.div`
         opacity: 0.9;
       }
     }
+  }
+
+  .content-footer {
+    height: 5px;
+    background-color: ${(props) => props.theme.color.primary};
   }
 
   /* 响应式调整 */
