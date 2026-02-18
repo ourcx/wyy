@@ -3,22 +3,22 @@ import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
   background-color: ${(props) => props.theme.color.surface};
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  border-bottom: .0625rem solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 .125rem .5rem rgba(0, 0, 0, 0.02);
 
   .content {
     height: ${(props) => props.theme.size.barHeight};
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 4rem;
+    margin: 0 64px;
   }
 
   .logo {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     color: ${(props) => props.theme.color.primary};
-    margin-right: 40px;
+    margin-right: 2.5rem;
     white-space: nowrap;
     cursor: default;
 
@@ -31,7 +31,7 @@ export const HeaderWrapper = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 1rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -39,14 +39,14 @@ export const HeaderWrapper = styled.div`
 
     .nav-wrap {
       height: 100%;
-      width: 5rem;
+      width: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
 
       a {
-        font-size: 16px;
+        font-size: 1rem;
         color: ${(props) => props.theme.color.textPrimary};
         text-decoration: none;
         transition: color 0.2s;
@@ -75,9 +75,9 @@ export const HeaderWrapper = styled.div`
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-bottom: 6px solid ${(props) => props.theme.color.primary};
+            border-left: .375rem solid transparent;
+            border-right: .375rem solid transparent;
+            border-bottom: .375rem solid ${(props) => props.theme.color.primary};
           }
         }
       }
@@ -87,19 +87,19 @@ export const HeaderWrapper = styled.div`
   .right-section {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   .search {
     position: relative;
 
     input {
-      width: 200px;
-      height: 36px;
-      padding: 0 16px;
-      border: 1px solid #eaeaea;
-      border-radius: 18px;
-      font-size: 14px;
+      width: 12.5rem;
+      height: 2.25rem;
+      padding: 0 1rem;
+      border: .0625rem solid #eaeaea;
+      border-radius: 1.125rem;
+      font-size: .875rem;
       outline: none;
       transition: all 0.2s;
 
@@ -109,7 +109,7 @@ export const HeaderWrapper = styled.div`
 
       &:focus {
         border-color: ${(props) => props.theme.color.primary};
-        box-shadow: 0 0 0 2px ${(props) => props.theme.color.primary}20;
+        box-shadow: 0 0 0 .125rem ${(props) => props.theme.color.primary}20;
       }
     }
   }
@@ -117,11 +117,11 @@ export const HeaderWrapper = styled.div`
   .user {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: .75rem;
 
     .avatar {
-      width: 40px;
-      height: 40px;
+      width: 2.5rem;
+      height: 2.5rem;
       border-radius: 50%;
       background: linear-gradient(
         135deg,
@@ -133,18 +133,33 @@ export const HeaderWrapper = styled.div`
       justify-content: center;
       color: ${(props) => props.theme.color.textOnPrimary};
       font-weight: bold;
-      font-size: 18px;
+      font-size: 1.125rem;
       cursor: default;
     }
 
     .login-btn {
-      padding: 8px 16px;
+      padding: .5rem 1rem;
       background-color: ${(props) => props.theme.color.primary};
       color: ${(props) => props.theme.color.textOnPrimary};
-      border-radius: 20px;
-      font-size: 14px;
+      border-radius: 1.25rem;
+      font-size: .875rem;
       font-weight: 500;
       border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .create-btn{
+      padding: .5rem 1rem;
+      color: ${(props) => props.theme.color.textOnSecondary};
+      border: 1px solid ${(props) => props.theme.color.textOnSecondary};
+      border-radius: 1.25rem;
+      font-size: .875rem;
+      font-weight: 500;
       cursor: pointer;
       transition: opacity 0.2s;
 
@@ -155,20 +170,20 @@ export const HeaderWrapper = styled.div`
   }
 
   .content-footer {
-    height: 5px;
+    height: .3125rem;
     background-color: ${(props) => props.theme.color.primary};
   }
 
   /* 响应式调整 */
-  @media (max-width: 900px) {
+  @media (max-width: 56.25rem) {
     .search input {
-      width: 140px;
+      width: 8.75rem;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
     .nav {
-      gap: 16px;
+      gap: 1rem;
     }
     .search {
       display: none;

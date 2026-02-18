@@ -3,37 +3,41 @@ import type { ReactNode, FC } from "react";
 import { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { HeaderWrapper } from "./style";
+import navLinks from "@/assets/data/header-titles.json"
 
 interface IProps {
     children?: ReactNode;
 }
 
 const AppHeader: FC<IProps> = () => {
-    // 导航链接配置
-    const navLinks = [
-        { to: "/discover", title: "发现音乐" },
-        { to: "/mine", title: "我的音乐" },
-        { to: "/focus", title: "关注" },
-        { to: "/download", title: "下载客户端" },
-    ];
+    function showItem(item: any) {
+        if (item.type === "path") {
+            return <NavLink
+                to={item.path}
+                className={({ isActive }) => (isActive ? "active" : "")}
+            >
+                {item.title}
+            </NavLink>;
+        }else {
+            return <a href={item.path} target="_blank" rel="noreferrer">
+                {item.title}
+            </a>
+        }
+
+    }
 
     return (
         <HeaderWrapper>
             <div className="content">
                 {/* 左侧 Logo 和导航 */}
-                <div style={{ display: "flex", alignItems: "center",height: "100%" }}>
+                <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
                     <div className="logo">
                         Music<span>Hub</span>
                     </div>
                     <div className="nav">
                         {navLinks.map((item) => (
-                            <div key={item.to} className="nav-wrap">
-                                <NavLink
-                                    to={item.to}
-                                    className={({ isActive }) => (isActive ? "active" : "")}
-                                >
-                                    {item.title}
-                                </NavLink>
+                            <div key={item.path} className="nav-wrap">
+                                {showItem(item)}
                             </div>
                         ))}
                     </div>
@@ -45,7 +49,8 @@ const AppHeader: FC<IProps> = () => {
                         <input type="text" placeholder="搜索音乐、歌手..." />
                     </div>
                     <div className="user">
-                        <div className="avatar">U</div>
+                        {/* <div className="avatar">U</div> */}
+                        <button className="create-btn">创作者中心</button>
                         <button className="login-btn">登录</button>
                     </div>
                 </div>
