@@ -92,24 +92,12 @@ export const HeaderWrapper = styled.div`
 
   .search {
     position: relative;
+    width: 10rem;
+    border-radius: 20px;
 
-    input {
-      width: 12.5rem;
-      height: 2.25rem;
-      padding: 0 1rem;
-      border: .0625rem solid #eaeaea;
-      border-radius: 1.125rem;
-      font-size: .875rem;
-      outline: none;
-      transition: all 0.2s;
-
-      &::placeholder {
-        opacity: 0.6;
-      }
-
-      &:focus {
-        border-color: ${(props) => props.theme.color.primary};
-        box-shadow: 0 0 0 .125rem ${(props) => props.theme.color.primary}20;
+    input{
+      &::placeholder{
+        font-size: 12px;
       }
     }
   }

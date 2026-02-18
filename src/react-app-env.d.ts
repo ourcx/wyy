@@ -1,5 +1,5 @@
 /// <reference types="react-scripts" />
-import 'styled-components'
+import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -13,10 +13,58 @@ declare module 'styled-components' {
       textOnPrimary: string;
       textOnSecondary: string;
       BarBg: string;
+      // 新增颜色
+      error: string;
+      warning: string;
+      info: string;
+      success: string;
+      border: string;
+      disabled: string;
     };
-    size: Record<string, any>;
+    size: {
+      barHeight: string;
+    };
+    typography: {
+      fontFamily: string;
+      fontSize: string;
+      fontWeightLight: number;
+      fontWeightRegular: number;
+      fontWeightMedium: number;
+      fontWeightBold: number;
+      h1: string;
+      h2: string;
+      h3: string;
+      h4: string;
+      h5: string;
+      h6: string;
+    };
+    spacing: {
+      unit: number;
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
+    borderRadius: {
+      sm: string;
+      md: string;
+      lg: string;
+      round: string;
+    };
+    shadow: {
+      light: string;
+      medium: string;
+      dark: string;
+    };
+    zIndex: {
+      modal: number;
+      popover: number;
+      tooltip: number;
+    };
     mixin: {
       wrapv1: string;
+      wrapv2: string;
     };
   }
 }

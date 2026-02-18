@@ -4,6 +4,8 @@ import { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { HeaderWrapper } from "./style";
 import navLinks from "@/assets/data/header-titles.json"
+import { Input } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 
 interface IProps {
     children?: ReactNode;
@@ -45,9 +47,7 @@ const AppHeader: FC<IProps> = () => {
 
                 {/* 右侧搜索和用户 */}
                 <div className="right-section">
-                    <div className="search">
-                        <input type="text" placeholder="搜索音乐、歌手..." />
-                    </div>
+                        <Input className="search" placeholder="搜索音乐、歌手..." prefix={<SearchOutlined />}/>
                     <div className="user">
                         {/* <div className="avatar">U</div> */}
                         <button className="create-btn">创作者中心</button>
