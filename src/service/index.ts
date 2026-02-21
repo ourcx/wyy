@@ -20,6 +20,8 @@ export const userApi = {
         request.put('/user/profile', data)
 };
 
+
+
 // 示例：其他模块
 export const homeApi = {
     getBanner: () => request.get('/banner'),
