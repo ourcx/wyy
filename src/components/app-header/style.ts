@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
   background-color: ${(props) => props.theme.color.surface};
-  border-bottom: .0625rem solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 .125rem .5rem rgba(0, 0, 0, 0.02);
 
   .content {

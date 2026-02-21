@@ -1,27 +1,35 @@
-import type { ReactNode,FC } from "react";
+import type { ReactNode, FC } from "react";
 import { memo } from "react";
-import { Outlet,Link } from "react-router-dom";
+import { Outlet, NavLink } from 'react-router-dom';
+import { DIscoverHeader } from './style';
 
-interface IProps{
+interface IProps {
     children?: ReactNode;
-} 
+}
 
-const Discover:FC<IProps> = (props) => {
+// 导航链接数据
+const discoverNavs = [
+    { title: '推荐', link: '/discover/recommend' },
+    { title: '排行', link: '/discover/ranking' },
+    { title: '歌单', link: '/discover/songs' },
+    { title: '主播电台', link: '/discover/djradio' },
+    { title: '歌手', link: '/discover/artist' },
+    { title: '新碟上架', link: '/discover/album' },
+] as const;
+
+const Discover: FC<IProps> = () => {
     return (
         <div>
-            <div>
-                <Link to="/discover/recommend">推荐</Link>
-                <Link to="/discover/ranking">排行</Link>
-                <Link to="/discover/songs">歌单</Link>
-                <Link to="/discover/djradio">主播电台</Link>
-                <Link to="/discover/artist">歌手</Link>
-                <Link to="/discover/album">新碟上架</Link>
-            </div>
+            <DIscoverHeader>
+                {discoverNavs.map(item => (
+                    <div className="item" key={item.link}>
+                        <NavLink to={item.link}>{item.title}</NavLink>
+                    </div>
+                ))}
+            </DIscoverHeader>
             <Outlet />
         </div>
-        
-    )
-}
-export default memo(Discover);
-//缓存组件
+    );
+};
 
+export default memo(Discover);
