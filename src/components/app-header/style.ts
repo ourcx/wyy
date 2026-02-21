@@ -9,8 +9,8 @@ export const HeaderWrapper = styled.div`
     height: ${(props) => props.theme.size.barHeight};
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 64px;
+    justify-content: center;
+    gap: 1.5rem;
   }
 
   .logo {

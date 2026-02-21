@@ -6,14 +6,6 @@ interface IProps{
 } 
 
 const Recommend:FC<IProps> = (props) => {
-    const [banners,setBanners] = useState<any[]>([])
-
-    useEffect(()=>{
-        request.get('./').then((res)=>{
-            console.log(res)
-        })
-    },[])
-
     return (
         <div>Recommend</div>
     )

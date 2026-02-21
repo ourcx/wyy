@@ -4,10 +4,9 @@ export const DIscoverHeader = styled.div`
   display: flex;
   align-items: center;
   height: 33px;
-  padding: 0 10px;
   background-color: ${props => props.theme.color.primary};
-  justify-content: center;
-  gap: 2rem; /* 原 5rem 过大，调整为适中间距 */
+  gap: 3.5rem;
+  padding-left: 22%;
 
   .item a {
     color: #fff;
@@ -15,6 +14,7 @@ export const DIscoverHeader = styled.div`
     width: 2rem;
     padding: .3rem .5rem;
     transition: all 0.2s;
+    flex: 1;
 
     &.active {
         color: #fff;
