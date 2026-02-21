@@ -1,21 +1,17 @@
+import { useAppDispatch } from "@/store";
 import type { ReactNode,FC } from "react";
 import { memo, useEffect, useState } from "react";
-import { request } from "@/service";
-import { getBanners } from "./service/recommend";
+import { fetchBannerDataAction } from "./store/recommend";
 interface IProps{
     children?: ReactNode;
 } 
 
 const Recommend:FC<IProps> = (props) => {
-    const [banners, setBanners] = useState<any>([])
+    //发送 action
+    const dispatch = useAppDispatch();
     useEffect(() => {
-        getBanners().then(res => {
-            setBanners(res.data.banners)
-        }).catch(err => {
-            console.log(err);
-        })
-
-    })
+        dispatch(fetchBannerDataAction());
+    },[])
     return (
         <div>Recommend</div>
     )

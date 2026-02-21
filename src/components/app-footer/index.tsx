@@ -2,6 +2,7 @@
 import type { ReactNode, FC } from "react";
 import { memo } from "react";
 import { FooterWrapper } from "./style";
+import React from "react";
 
 interface IProps {
     children?: ReactNode;
@@ -97,20 +98,20 @@ const AppFooter: FC<IProps> = () => {
                 {/* 第一行链接：产品相关（每个项带有图标） */}
                 <div className="link-row">
                     {IconData.map((item, index) => (
-                        <>
+                        <React.Fragment key={index}>
                             <span className="separator">|</span>
                             {renderLinkItem(item.icon, item.text, item.link)}
-                        </>
+                        </React.Fragment>
                     ))}
                 </div>
 
                 {/* 第二行链接：法律及合作 */}
                 <div className="link-row gap">
-                    {NoIconData.map((item, index) => (
-                        <>
+                    {NoIconData.map((item, index: number) => (
+                        <React.Fragment key={index}>
                             <span className="separator">|</span>
                             {renderLinkItem(item.icon, item.text, item.link)}
-                        </>
+                        </React.Fragment>
                     ))}
                 </div>
 

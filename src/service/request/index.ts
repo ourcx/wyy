@@ -50,7 +50,7 @@ class Request {
                 // 直接返回 data 部分，简化调用
                 const data = response.data;
                 // 根据业务状态码处理
-                if (data.code !== undefined && data.code !== 200) {
+                if (data.code !== undefined && data.code !== 0) {
                     // 统一错误处理（例如弹窗）
                     console.error('业务错误:', data.message || '请求失败');
                     return Promise.reject(new Error(data.message || '请求失败'));
