@@ -5,11 +5,31 @@ import styled from "styled-components";
 export const ReBanners = styled.div`
   height: 285px;
   background-color: #f5f5f5;
-  background-repeat: no-repeat;
-  background-size: 6000px;
-  background-position: center center;
   position: relative;
-  transition: background-image 0.3s ease;
+  overflow: hidden; /* 防止背景溢出 */
+
+  /* 双背景图层公用样式 */
+  .bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 6000px; /* 保持原设计的大背景铺开 */
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: opacity 0.3s ease; /* 与轮播 fade 时长匹配 */
+    pointer-events: none; /* 让鼠标事件穿透到内容 */
+    z-index: 1;
+  }
+
+  /* 初始状态：第一个图层显示，第二个隐藏 */
+  .bg-layer:first-of-type {
+    opacity: 1;
+  }
+  .bg-layer:last-of-type {
+    opacity: 0;
+  }
 `;
 
 // 内容包装器
@@ -21,6 +41,7 @@ export const ReBannerContent = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  z-index: 2; /* 内容在背景之上 */
 
   .btn {
     pointer-events: auto;
@@ -42,12 +63,13 @@ export const ReBannerContent = styled.div`
   }
 `;
 
-// 左侧轮播区域
+// 左侧轮播区域（增加 z-index 确保在背景之上）
 export const ReBannerLeft = styled.div`
   position: relative;
   width: 730px;
   height: 100%;
   overflow: hidden;
+  z-index: 2;
 
   .carousel-item {
     a {
@@ -86,11 +108,12 @@ export const ReBannerLeft = styled.div`
   }
 `;
 
-// 右侧下载卡片（优化区域）
+// 右侧下载卡片（增加 z-index）
 export const ReBannerRight = styled.div`
   width: 252px;
   height: 100%;
   position: relative;
+  z-index: 2;
 `;
 
 export const DownloadCard = styled.div`
@@ -105,16 +128,15 @@ export const DownloadCard = styled.div`
     rgba(0, 0, 0, 0.3) 0%,
     rgba(0, 0, 0, 0.5) 100%
   );
-  backdrop-filter: blur(2px); /* 轻微模糊，可选 */
+  backdrop-filter: blur(2px);
   border-radius: 0 0 4px 4px;
 
-  /* 下载按钮样式优化 */
   .btn-download {
     display: inline-block;
     width: 200px;
     height: 46px;
     margin: 170px auto 12px;
-    background: ${props => props.theme.color.textPrimary || '#c20c0c'}; /* 使用主题色，默认红色 */
+    background: ${props => props.theme.color.textPrimary || '#c20c0c'};
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -133,13 +155,12 @@ export const DownloadCard = styled.div`
 
   p {
     margin: 0;
-    color: #ddd; /* 浅灰色文字 */
+    color: #ddd;
     font-size: 12px;
     line-height: 1.5;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
 
-  /* 左右阴影装饰 */
   .shadow,
   .shadowr {
     position: absolute;
@@ -150,5 +171,4 @@ export const DownloadCard = styled.div`
   }
 `;
 
-// 自定义圆点容器（未使用，保留）
 export const BannerDot = styled.div``;
