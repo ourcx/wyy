@@ -1,17 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getBanners } from "../service/recommend";
 
-// 定义 Banner 数据类型（根据实际接口调整）
-interface Banner {
-    id: number;
-    imageUrl: string;
-    title?: string;
-    // 其他字段...
-}
-
 // 定义 recommend slice 的状态类型
 interface IRecommendState {
-    banners: Banner[];        // 轮播图列表
+    banners: string[];        // 轮播图列表
     loading?: boolean;        // 可选：加载状态
     error?: string | null;    // 可选：错误信息
 }

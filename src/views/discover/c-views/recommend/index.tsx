@@ -2,6 +2,7 @@ import { useAppDispatch } from "@/store";
 import type { ReactNode,FC } from "react";
 import { memo, useEffect, useState } from "react";
 import { fetchBannerDataAction } from "./store/recommend";
+import ReBanner from "../../c-cpns/re-banner/";
 interface IProps{
     children?: ReactNode;
 } 
@@ -13,7 +14,9 @@ const Recommend:FC<IProps> = (props) => {
         dispatch(fetchBannerDataAction());
     },[])
     return (
-        <div>Recommend</div>
+        <div>
+            <ReBanner ></ReBanner>
+        </div>
     )
 }
 export default memo(Recommend);
