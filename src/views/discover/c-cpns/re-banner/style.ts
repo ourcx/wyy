@@ -18,7 +18,7 @@ export const ReBanners = styled.div`
     background-size: 6000px; /* 保持原设计的大背景铺开 */
     background-position: center center;
     background-repeat: no-repeat;
-    transition: opacity 0.3s ease; /* 与轮播 fade 时长匹配 */
+    transition: opacity 0.3s ease;
     pointer-events: none; /* 让鼠标事件穿透到内容 */
     z-index: 1;
   }
